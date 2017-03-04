@@ -14,6 +14,11 @@ header {
 	overflow: auto;
 }
 
+
+.hangmanColSeperator{
+	margin-top: 15%;
+}
+
 #wordSpot {
 	width: 100%;
 	font-size: 200%;

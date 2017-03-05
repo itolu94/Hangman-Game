@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Anime Hangman</title>
+    <link rel="shortcut icon" href="http://i297.photobucket.com/albums/mm222/amane_02/SoulSocitySkull.jpg">
     <link rel="stylesheet" href="assets\css\reset.css">
     <link rel="stylesheet" href="assets\css\bootstrap.min.css">
     <link rel="stylesheet" href="assets\css\style.css">
@@ -17,45 +18,40 @@
     <div class="container">
         <div class="row">
             <!-- guesses, wins, loses, and hangman game located in here -->
-            <div class="col-lg-5">
+            <div class="col-sm-5 col-sm-offset-1">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-sm-12">
                         <p id="wordSpot">
-                            Pellentesque accumsan convallis
+                            Click Start to Begin!
                         </p>
+                        <!-- buttons to start, recieve a hint and restet the game are here.  -->
                         <div class="btn-group" role="group" arial-label="start hint reset">
                             <button type="button" class=" btn btn-default" id="button" onclick="wordGenorator()">Start</button>
-                            <button type="button" class="btn btn-default" id="button">Hink</button>
+                            <button type="button" class="btn btn-default" id="button" onclick="hintGenorator()" >Hint</button>
                             <button type="button" class="btn btn-default" id="button" onclick="wordGenorator()">Reset</button>
                             <p id="userGuesses"> </p>
+                            <p class="wins/loses">Wins: <span id="wins"> 0 </span></p>
+                            <p class="wins/loses">Loses: <span id="loses"> 0 </span></p>
+                            <p>Number of Tries: <span id="tries"> 0 </span></p>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-12 hangmanColSeperator">
+                    <div class="col-sm-12 hangmanColSeperator">
+                        <!-- Incorrect guesses will be displayed here -->
+                       <h3>Incorrect Guesses</h3>
                         <p id="guessesArrary">
-                            Pellentesque accumsan convallis ante tincidunt feugiat. Curabitur hendrerit ipsum quis blandit accumsan. Phasellus eu leo at arcu dictum pellentesque. Donec imperdiet quam vel pulvinar ullamcorper. Sed congue in nunc at vehicula. Praesent malesuada
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-lg-offset-1">
+            <div class="col-sm-6">
                 <div class="row">
-                    <div class="col-lg-12">
-                        <span>
-            			Pellentesque accumsan convallis ante tincidunt feugiat. Curabitur hendrerit ipsum quis blandit accumsan. Phasellus eu leo at arcu dictum pellentesque. Donec imperdiet quam vel pulvinar ullamcorper. Sed congue in nunc at vehicula. Praesent malesuada nulla et magna scelerisque, consectetur elementum quam pretium. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut eget maximus ipsum. Cras consectetur risus at orci consequat vehicula. Sed condimentum nibh sapien, eget fringilla purus dignissim sed. Donec iaculis tempus orci, ut aliquam magna porta id. Praesent in aliquet dui.
-            			</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <span>
-                        Keeps track of users wins, loses, and number of tries remaining.  
-            			<p class="wins/loses">Wins: <span id="wins"> 0 </span></p>
-            			<p class="wins/loses">Loses: <span id="loses"> 0 </span></p>
-            			<p>Number of Tries: <span id="tries"> 0 </span></p>
-            			<p>Incorrect Guesses: <span id="incorrectWordBank"> 0 </span></p>
-            			</span>
+                    <div class="col-sm-12">
+                        <img src="assets/images/shonen_jump.jpg" class="center-block img-fluid" id="animeImagesSlot" alt="">
+                        <p id='hint'>
+                            If you need help solving with the word, click on Hint! 
+                        </p>
                     </div>
                 </div>
             </div>

@@ -1,34 +1,64 @@
 // Word bank and hints for each wordBank
-var wordBank = {
-    name: ["naruto uzamaki", "ichigo", "gon", "rider", "itachi", "zoro", ],
-    images: ["assets/images/Naruto's_Sage_Mode.png", "assets/images/ichigo.png", "assets/images/Gon.jpg", "assets/images/Rider.jpg", "assets/images/itachi.jpg", "assets/images/zoro.jpg"],
-    hints: ["He became the jinchūriki of the Nine-Tails on the day of his birth — a fate that caused him to be shunned by most of Konoha throughout his childhood.",
-        "A human who has Shinigami powers and is a Substitute Shinigami.", "A Hunter and the son of Ging Freecss.",
-        "Servant of Waver Velvet in the Fourth Holy Grail War of Fate/Zero.",
-        "He became an international criminal after murdering his entire clan, sparing only his younger brother, Sasuke.",
-        "He is one of the top three fighters in the straw hat crew"
-    ]
-};
+var wordBank = [{
+        name: "naruto uzamaki",
+        image: "assets/images/Naruto's_Sage_Mode.png",
+        hint: "He became the jinchūriki of the Nine-Tails on the day of his birth — a fate that caused him to be shunned by most of Konoha throughout his childhood."
+    }, {
+        name: "ichigo",
+        image: "assets/images/ichigo.png",
+        hint: "A human who has Shinigami powers and is a Substitute Shinigami."
+    }, {
+        name: "gon",
+        image: "assets/images/Gon.jpg",
+        hint: "A Hunter and the son of Ging Freecss."
+    }, {
+        name: "rider",
+        image: "assets/images/Rider.jpg",
+        hint: "Servant of Waver Velvet in the Fourth Holy Grail War of Fate/Zero."
+    }, {
+        name: "itachi",
+        image: "assets/images/itachi.jpg",
+        hint: "He became an international criminal after murdering his entire clan, sparing only his younger brother, Sasuke."
+    }, {
+        name: "zoro",
+        image: "assets/images/zoro.jpg",
+        hint: "He is one of the top three fighters in the straw hat crew"
+    }]
+    // name: ["naruto uzamaki", "ichigo", "gon", "rider", "itachi", "zoro", ], {
+    //     images: ["assets/images/Naruto's_Sage_Mode.png", "assets/images/ichigo.png", "assets/images/Gon.jpg", "assets/images/Rider.jpg", "assets/images/itachi.jpg", "assets/images/zoro.jpg"],
+    //     hints: ["He became the jinchūriki of the Nine-Tails on the day of his birth — a fate that caused him to be shunned by most of Konoha throughout his childhood.",
+    //         "A human who has Shinigami powers and is a Substitute Shinigami.", "A Hunter and the son of Ging Freecss.",
+    //         "Servant of Waver Velvet in the Fourth Holy Grail War of Fate/Zero.",
+    //         "He became an international criminal after murdering his entire clan, sparing only his younger brother, Sasuke.",
+    //         "He is one of the top three fighters in the straw hat crew"
+    //     ]
+    // };
+
 var word, wordBankSpace, wordBankSpaceAnswer, userInput;
 var wins = 1;
 var loses = 1;
 var tries = 0;
 var incorrectGuesses = [" "];
 var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+var index;
 
-// picks a random element from the wordBank array and generates blank spaces
+// When Start is clicked, this function picks a random word from the wordBank and genreates underscores seen on page.  
 var wordGenorator = function() {
     incorrectGuesses = ['']
-    tries = 3;
-    document.getElementById('tries').innerHTML = (tries);
-    document.getElementById('guessesArrary').innerHTML = (incorrectGuesses);
+    tries = 8;
+    document.getElementById('tries').innerHTML = tries;
+    document.getElementById('guessesArrary').innerHTML = incorrectGuesses;
     var guesses = [" "]
         // Need to add code to clear word
-    word = wordBank.name[Math.floor(Math.random() * wordBank.name.length)];
-    console.log(wordBank.name.indexOf(word));
+    word = wordBank[Math.floor(Math.random() * wordBank.length)].name;
+
+    // determines the index of the word in the array
+    arraryIndexLocation();
     wordBankSpace = [" "];
     wordBankSpaceAnswer = [" "];
     console.log(word);
+
+    // Generates underscores on the page
     for (var i = 0; i < word.length; i++) {
         if (word.charAt(i) === " ") {
             wordBankSpace.push("&nbsp; &nbsp; &nbsp;");
@@ -39,23 +69,22 @@ var wordGenorator = function() {
         }
 
     }
+    // pushes the underscores to HTML page
     document.getElementById('wordSpot').innerHTML = wordBankSpace.join("");
 }
 
+
+
 // generates hints for the user
 var hintGenorator = function() {
-    var index = wordBank.name.indexOf(word);
-    console.log(typeof index);
-    if (index === undefined) {
-        console.log(index);
-        document.getElementById('hint').innerHTML = "You have to start the game before you get hints.";
-    } else {
-        document.getElementById('hint').innerHTML = wordBank.hints[index];
-    }
+    document.getElementById('hint').innerHTML = wordBank[index].hint;
 }
 
-// Code for recognizing characters pressed and putting it into array
 
+
+
+
+// Code for recognizing characters pressed and putting it into array
 document.onkeydown = function userGuesses() {
     // store the letter that was pressed
     userInput = event.key;
@@ -89,13 +118,15 @@ document.onkeydown = function userGuesses() {
     }
 }
 
-// Determines when the game is finished
-// Works by converting both arrays to string, then comparing them
+
+
+// Determines when the game is finished.  Works by converting both arrays to string, then comparing them
 function areWeDone() {
     // finds the index number of the word, images have the same location
-    var index = wordBank.name.indexOf(word);
+    // var index = wordBank(word);
     incorrectGuesses = ['']
-        // get the solution and what the user has guessed so far and convert it into a string
+
+    // get the solution and what the user has guessed so far and convert it into a string
     confirm1 = wordBankSpace.join(' ');
     confirm2 = wordBankSpaceAnswer.join(" ");
 
@@ -104,7 +135,7 @@ function areWeDone() {
         incorrectGuesses = ['']
         document.getElementById("wins").innerHTML = wins++;
         document.getElementById('guessesArrary').innerHTML = incorrectGuesses.join(" ")
-        document.getElementById('animeImagesSlot').src = wordBank.images[index]
+        document.getElementById('animeImagesSlot').src = wordBank[index].image
             // We run the wordGenorator funcctio to clear the board and reset the number of tries 
         wordGenorator();
     }
@@ -123,6 +154,7 @@ function isALetter() {
     }
 }
 
+
 // Determines if the incorrect guess has already been guessed
 function userWordBank() {
     var isAlreadyGuessed;
@@ -138,11 +170,22 @@ function userWordBank() {
     }
 }
 
+
 // Determines if the key ressed is a letter 
 function isAAlphebetCharacter() {
     for (i = 0; i < alphabet.length; i++) {
         if (userInput === alphabet[i]) {
             return true;
+        }
+    }
+}
+
+
+function arraryIndexLocation () {
+    for (var i = 0; i < wordBank.length; i++) {
+        if (word === wordBank[i].name) {
+            index = i;
+            return index;
         }
     }
 }

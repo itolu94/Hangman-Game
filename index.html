@@ -18,39 +18,47 @@
     <div class="container">
         <div class="row">
             <!-- guesses, wins, loses, and hangman game located in here -->
-            <div class="col-sm-5 col-sm-offset-1">
+            <div class="col-sm-6 border">
                 <div class="row">
                     <div class="col-sm-12">
                         <p id="wordSpot">
                             Click Start to Begin!
                         </p>
-                        <!-- buttons to start, recieve a hint and restet the game are here.  -->
-                        <div class="btn-group" role="group" arial-label="start hint reset">
-                            <button type="button" class=" btn btn-default" id="button" onclick="wordGenorator()">Start</button>
-                            <button type="button" class="btn btn-default" id="button" onclick="hintGenorator()" >Hint</button>
-                            <button type="button" class="btn btn-default" id="button" onclick="wordGenorator()">Reset</button>
-                            <p id="userGuesses"> </p>
-                            <p class="wins/loses">Wins: <span id="wins"> 0 </span></p>
-                            <p class="wins/loses">Loses: <span id="loses"> 0 </span></p>
-                            <p>Number of Tries: <span id="tries"> 0 </span></p>
+                        <div class="btn-group-wrap">
+                            <!-- buttons to start, recieve a hint and restet the game are here.  -->
+                            <div class="btn-group" role="group" arial-label="start hint reset">
+                                <button type="button" class=" btn btn-default" id="button" onclick="wordGenorator()">Start</button>
+                                <button type="button" class="btn btn-default" id="button" onclick="hintGenorator()">Hint</button>
+                                <button type="button" class="btn btn-default" id="button" onclick="wordGenorator()">Reset</button>
+                            </div>
                         </div>
+                        <p id="userGuesses"> </p>
+                        <h4>Hints</h4>
+                        <p id='hint'>
+                            If you need help solving with the word, click on Hint!
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-12 hangmanColSeperator">
                         <!-- Incorrect guesses will be displayed here -->
-                       <h3>Incorrect Guesses</h3>
+                        <h4>Incorrect Guesses</h4>
                         <p id="guessesArrary">
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-5 col-sm-offset-1 border">
                 <div class="row">
                     <div class="col-sm-12">
+                        <p id="characterName"></p>
                         <img src="assets/images/shonen_jump.jpg" class="center-block img-fluid" id="animeImagesSlot" alt="">
-                        <p id='hint'>
-                            If you need help solving with the word, click on Hint! 
+                        <audio controls>
+                        
+                            <source src="assets/mp3/bensound-happyrock.mp3" type="audio/mpeg" id="hangmanAudio"> Your browser does not support the audio element.
+                        </audio>
+                        <p>Wins: <span id="wins"> 0 </span></p>
+                        <p>Loses: <span id="loses"> 0 </span></p>
+                        <p>Number of Tries: <span id="tries"> 0 </span></p>
                         </p>
                     </div>
                 </div>

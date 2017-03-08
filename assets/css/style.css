@@ -1,44 +1,82 @@
-html{
-	min-height: 100%;
+html {
+    min-height: 100%;
 }
+
 body {
-	min-height: 100%;
-	color: #DCDCDC;
-	font-family: 'Gloria Hallelujah', cursive;
-	background-image: url(../images/stardust.png);
+    min-height: 100%;
+    color: #DCDCDC;
+    font-family: 'Gloria Hallelujah', cursive;
+    background-image: url(../images/stardust.png);
 }
 
 header {
-	text-align: center;
-	margin-bottom: 2%;
-	width: 100%;
-	background-color: #696969; 
-	overflow: auto;
+    text-align: center;
+    margin-bottom: 2%;
+    width: 100%;
+    background-color: #696969;
+    overflow: auto;
 }
 
-
-.hangmanColSeperator{
-	margin-top: 15%;
+.hangmanColSeperator {
+    margin-top: 15%;
 }
 
 #wordSpot {
-	width: 100%;
-	font-size: 200%;
-/*	padding-bottom: 8%;*/
+    width: 100%;
+    font-size: 150%;
 }
 
 #animeImagesSlot {
-	width: 50%;
-	height: 100%;
-	clear: both
+    width: 50%;
+    height: 100%;
+    margin-top: 2%;
+}
+
+h4,
+#characterName {
+    text-align: center;
+    margin-top: 3%;
 }
 
 
+#button {
+    margin-bottom: 10%;
+}
 
+#button:nth-child(3) {
+    clear: right;
+}
+
+#guessesArrary,
+#wordSpot {
+    letter-spacing: 5px;
+    text-align: center;
+}
+
+.border {
+    border: 4px grey groove;
+    height: 100%;
+    background-color: grey;
+}
+
+.border:nth-child(1) {
+    padding-top: 10px;
+}
+
+#animeImagesSlot{
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+p, .btn-group-wrap,
 #hint {
-	text-align: center;
+    text-align: center;
 }
 
-button#button:nth-child(3) {
-	margin-bottom: 5%;
+.btn-group-wrap {
+    margin: 0 auto;
+    text-align: center;
+    width: inherit;
+    display: inline-block;
 }
+
